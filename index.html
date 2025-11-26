@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Development Portfolio | Binuth Jayamaha</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #007188 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Center content including photo */
+            max-width: 800px;
+        }
+
+        /* <!-- ADDED: Profile Photo Styles --> */
+        .profile-photo {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            animation: fadeInUp 1s ease-out, floatAnim 4s ease-in-out infinite;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* Hover Effects */
+        .profile-photo:hover {
+            transform: scale(1.06) rotate(1deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Fade In + Slide */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Animation */
+        @keyframes floatAnim {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: linear-gradient(135deg, #000000 0%, #007188 100%);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #52a6d1;
+            padding-bottom: 1rem;
+        }
+
+        .lecture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .lecture-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .lecture-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+            border-color: #66acea;
+        }
+
+        .lecture-number {
+            display: inline-block;
+            background: #4da7db;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .lecture-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .lecture-preview {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .expand-btn {
+            background: #03889a;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .expand-btn:hover {
+            background: #4b8fa2;
+            transform: scale(1.05);
+        }
+
+        /* <!-- ADDED: Evidence Tag as Clickable Button --> */
+        .tag {
+            background: #00867f9d;
+            color: #003d45;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .tag:hover {
+            background: #00867f9d;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 2% auto;
+            padding: 3rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #66baea;
+        }
+
+        .theory-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .theory-section h4 {
+            color: #4b80ae;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .theory-section ul {
+            margin-left: 1.5rem;
+            line-height: 2;
+        }
+
+        .impact-box {
+            background: linear-gradient(135deg, #66b1ea 0%, #197e89 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .impact-box h4 {
+            margin-bottom: 1rem;
+        }
+
+        .evidence-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .action-list {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
+            background: #e0e7ff;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: width 1s ease;
+        }
+
+        /* <!-- ADDED: Evidence Modal Styles --> */
+        #evidenceModal .modal-content {
+            text-align: center;
+        }
+
+        #evidenceModal img {
+            max-width: 100%;
+            max-height: 60vh;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        #evidenceModal a.pdf-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .lecture-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 2rem;
+                margin: 5% auto;
+                width: 95%;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <!-- ADDED: Profile Photo -->
+            <img src="1.png" alt="Binuth Jayamaha" class="profile-photo" id="profilePhoto">
+            <!-- ⚠️ Replace src with your actual photo URL or local path -->
+
+            <h1>Professional Development Portfolio</h1>
+            <p class="subtitle">Binuth Jayamaha | Professional Skills</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">09</span>
+                    <span class="stat-label">Comprehensive Lectures</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">400%</span>
+                    <span class="stat-label">Confidence Growth</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Commitment to Excellence</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="30" height="50" viewBox="0 0 30 50">
+                <rect x="5" y="5" width="20" height="35" rx="10" fill="none" stroke="white" stroke-width="2" />
+                <circle cx="15" cy="15" r="3" fill="white">
+                    <animate attributeName="cy" from="15" to="30" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+            </svg>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>📚 Course Journey & Transformation</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: #555;">
+                This portfolio documents my comprehensive transformation through the Business English & Employability
+                Skills course.
+                Each lecture sparked significant personal growth, practical skill development, and measurable
+                improvements in my
+                professional capabilities. Below you'll find detailed theory notes, personal reflections, and concrete
+                evidence
+                of my learning journey.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>🎓 Lecture Modules</h2>
+            <div class="lecture-grid" id="lectureGrid"></div>
+        </div>
+    </div>
+
+    <!-- Main Lecture Modal -->
+    <div id="lectureModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- ADDED: Evidence Modal -->
+    <div id="evidenceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="evidenceTitle">Evidence</h3>
+            <div id="evidenceContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // Placeholder for your actual evidence files
+        // 🔹 Format: "Evidence Label" => { type: 'img'|'pdf'|'video', src: 'URL' }
+        const evidenceLibrary = {
+            "Spoken English Note": { type: "img", src: "4.jpeg" },
+            "My Johari": { type: "img", src: "myjohari.jpeg" },
+            "Confidence level: 3/10 → 7/10": { type: "img", src: "3.jpeg" },
+            "Daily practice recordings": { type: "pdf", src: "#" }, // replace # with actual PDF link
+            "After vs Before CV screenshots": { type: "img", src: "cv2.png" },
+            "Final professional CV PDF": { type: "pdf", src: "cv.pdf" },
+            "Multiple tailored versions": { type: "pdf", src: "cvt.png" },
+            "This entire interactive website is the proof!": { type: "img", src: "https://via.placeholder.com/600x400?text=Portfolio+Screenshot" },
+            "PEAKS framework documentation": { type: "pdf", src: "peaks.pdf" },
+            "Group activity worksheet": { type: "img", src: "https://via.placeholder.com/600x300?text=Worksheet" },
+            "Agenda templates": { type: "pdf", src: "#" },
+            "Minutes samples": { type: "pdf", src: "#" },
+            "Evaluation forms": { type: "pdf", src: "#" },
+            "Cover Letter": { type: "pdf", src: "cl.pdf" },
+            "Photo in interview outfit": { type: "img", src: "outfit.jpeg" },
+            "Thank-you email screenshot": { type: "img", src: "ty.png" },
+            "Excellent mock interview feedback": { type: "img", src: "https://via.placeholder.com/600x200?text=Feedback+Form" },
+            "Internal Proposal PDF (8 pages)": { type: "pdf", src: "#" },
+            "Food Festival final report": { type: "pdf", src: "psff.pdf" },
+            "Budget analysis documents": { type: "pdf", src: "bdoc.pdf" },
+            "Photo of correct table setting with labels": { type: "img", src: "eti.png" },
+            "30-second video showing utensil positions": { type: "img", src: "eti2.gif" },
+            "Before vsemplates": { type: "pdf", src: "Before.pdf" },
+            "Before vs After email screenshots": { type: "pdf", src: "Before.pdf" },
+            "New professional email signature": { type: "img", src: "ds.png" },
+            "Email t report PDF": { type: "pdf", src: "ppff.pdf" },
+            "Final report PDF": { type: "pdf", src: "psff.pdf" },
+            "Project proposal": { type: "pdf", src: "pspro.pdf" },
+            "4 stall photos": { type: "img", src: "fs1.png" },
+            "Canva poster designs": { type: "img", src: "ff.jpeg" },
+            "Activity": { type: "img", src: "activity.jpeg" },
+            "Group Image": { type: "img", src: "group4to2.jpeg" },
+            "Project Report": { type: "pdf", src: "sevi.pdf" },
+            "Sample Research Paper Screenshot": { type: "img", src: "research_sample.png" },
+            "Abstract Draft PDF": { type: "pdf", src: "abstract_draft.pdf" },
+            "Research Notes Image": { type: "img", src: "research_notes.png" },
+
+            "Report": { type: "img", src: "group4to.png" }
+
+        };
+
+        const lectures = [
+            // ... (your existing lectures array unchanged) 
+            {
+                number: "01",
+                title: "Soft/Employability Skills & Communication",
+                theory: {
+                    "Core Soft Skills Framework": [
+                        "Communication: Verbal, non-verbal, written, and listening skills essential for workplace interaction",
+                        "Teamwork & Collaboration: Working effectively in diverse groups, respecting different perspectives",
+                        "Problem-Solving & Critical Thinking: Analyzing situations, identifying solutions, making informed decisions",
+                        "Adaptability & Flexibility: Adjusting to changing circumstances, learning new skills quickly",
+                        "Time Management: Prioritizing tasks, meeting deadlines, balancing multiple responsibilities",
+                        "Leadership: Motivating others, taking initiative, guiding teams toward goals"
+                    ],
+                    "Personality Components": [
+                        "Values: Core beliefs that guide behavior and decision-making",
+                        "Beliefs: Convictions about what is true or false",
+                        "Attitudes: Emotional responses and predispositions toward situations",
+                        "Character: Moral and ethical qualities that define who you are"
+                    ],
+                    "Key Research Finding": [
+                        "Harvard Study revealed: 85% of job success attributed to soft skills, only 15% to technical skills",
+                        "Soft skills are the differentiator in competitive job markets",
+                        "Employers prioritize candidates who can communicate and collaborate effectively"
+                    ]
+                },
+                impact: "“This became a significant turning point for me, as I recognized that my spoken English fluency especially in public settings was the primary factor limiting my career growth and overall confidence.",
+                actions: [
+                    "Immediately enrolled in a 3-month Spoken English Diploma program",
+                    "Started daily practice sessions recording myself speaking",
+                    "Joined public speaking practice groups",
+                    "Set measurable goals for improvement"
+                ],
+                evidence: ["Spoken English Note","My Johari"],
+                progress: 100
+            },
+            {
+                number: "02",
+                title: "Curriculum Vitae (CV) Writing",
+                theory: {
+                    "CV as Marketing Document": [
+                        "Purpose: Sell yourself to employers, not write autobiography",
+                        "First impression tool: Recruiters spend 6-7 seconds scanning CVs",
+                        "Must communicate value proposition immediately"
+                    ],
+                    "Essential CV Components": [
+                        "Professional Summary: Compelling 3-4 line overview of qualifications",
+                        "Reverse Chronological Order: Most recent experience first",
+                        "Action Verbs: Led, Developed, Implemented, Achieved (not 'responsible for')",
+                        "Quantifiable Achievements: Numbers, percentages, specific results",
+                        "Tailored Content: Customized for each job application",
+                        "ATS-Friendly Format: Readable by Applicant Tracking Systems"
+                    ],
+                    "Common Mistakes to Avoid": [
+                        "Including irrelevant personal information (hobbies unrelated to job)",
+                        "Poor formatting that confuses ATS systems",
+                        "Generic CVs not tailored to specific positions",
+                        "Lack of measurable achievements",
+                        "Exceeding 1-2 pages for entry to mid-level positions"
+                    ]
+                },
+                impact: "I was so proud of my old CV, but after the lecture I realized it was full of irrelevant information, bad formatting, and no tailoring → would be rejected in 5 seconds by any recruiter.",
+                actions: [
+                    "Completely rewrote my CV from scratch",
+                    "Created master CV and tailored versions for different job types",
+                    "Reduced to 1 page with modern, ATS-friendly design",
+                    "Added quantifiable achievements to every role",
+                    "Sought feedback from career services"
+                ],
+                evidence: ["After vs Before CV screenshots", "Final professional CV PDF", "Multiple tailored versions"],
+                progress: 100
+            },
+            {
+                number: "03",
+                title: "Portfolio Development",
+                theory: {
+                    "Four Types of Portfolios": [
+                        "Personal Portfolio: Documents individual growth and learning journey",
+                        "Career/Dossier Portfolio: Comprehensive collection of professional work",
+                        "Employment Portfolio: Targeted showcase for job applications",
+                        "Assessment Portfolio: Evidence-based documentation for evaluation"
+                    ],
+                    "PEAKS Framework": [
+                        "P - Personal Characteristics: Values, work ethic, personality traits",
+                        "E - Experience: Internships, jobs, volunteer work, projects",
+                        "A - Accomplishments: Awards, recognitions, measurable successes",
+                        "K - Knowledge: Academic learning, certifications, specialized knowledge",
+                        "S - Skills: Technical abilities, soft skills, competencies"
+                    ],
+                    "Reflective Practice Model": [
+                        "What? - Describe the experience/situation objectively",
+                        "So What? - Analyze significance, lessons learned, skills developed",
+                        "Now What? - Plan future actions, set goals, apply learning"
+                    ]
+                },
+                impact: "I thought portfolio = just a folder of certificates. Now I understand it's a storytelling tool to prove growth and professional development.",
+                actions: [
+                    "Chose to create full animated HTML website instead of PDF",
+                    "Implemented PEAKS framework throughout portfolio",
+                    "Added reflective statements to each major experience",
+                    "Made it 2025-ready with modern design and interactivity"
+                ],
+                evidence: ["This entire interactive website is the proof!", "PEAKS framework documentation"],
+                progress: 95
+            },
+            {
+                number: "04",
+                title: "Speaking Skills & Professional Meetings",
+                theory: {
+                    "Effective Speaking Techniques": [
+                        "Eliminate filler words: 'um', 'like', 'you know', 'basically'",
+                        "Speak clearly with appropriate pace and volume",
+                        "Use STAR method: Situation, Task, Action, Result",
+                        "Maintain eye contact and confident body language",
+                        "Structure responses with clear beginning, middle, and end"
+                    ],
+                    "Meeting Documentation": [
+                        "Meeting Invitation: Date, time, location, purpose, required attendees",
+                        "Agenda: List of topics with time allocations and responsible persons",
+                        "Minutes: Record of discussions, decisions, action items, deadlines",
+                        "Evaluation Form: Assessment of meeting effectiveness and outcomes"
+                    ],
+                    "Facilitator Responsibilities": [
+                        "Keep discussion on track and within time limits",
+                        "Ensure all voices are heard and respected",
+                        "Manage conflicts diplomatically",
+                        "Summarize key points and action items",
+                        "Follow up on assigned tasks"
+                    ]
+                },
+                impact: "My speaking confidence was very low with zero understanding of professional meeting management. This lecture provided a complete framework.",
+                actions: [
+                    "Started using STAR method daily in conversations",
+                    "Created complete set of meeting documents as templates",
+                    "Volunteered to chair group discussions",
+                    "Practiced eliminating filler words through recording"
+                ],
+                evidence: [],
+                progress: 55
+            },
+            // Add this object to your `lectures` array
+            {
+                number: "05",
+                title: "Research: Importance & Basic Components",
+                theory: {
+                    "Why Research Matters": [
+                        "Provides evidence-based insights for decision-making",
+                        "Supports innovation and problem-solving",
+                        "Strengthens credibility in academic and professional work",
+                        "Enhances analytical and critical thinking skills"
+                    ],
+                    "Basic Components of a Research Paper": [
+                        "Title: Concise, informative, reflects research focus",
+                        "Abstract: Summary of objectives, methodology, results, and conclusions",
+                        "Introduction: Background, problem statement, objectives",
+                        "Literature Review: Overview of existing studies",
+                        "Methodology: Research design, data collection methods, ethical considerations",
+                        "Results: Findings presented clearly with tables/figures",
+                        "Discussion: Interpretation of results, limitations, implications",
+                        "Conclusion: Summarize findings and suggest future research",
+                        "References: Properly formatted citations of all sources"
+                    ],
+                    "Research Skills & Ethics": [
+                        "Identify valid and reliable sources",
+                        "Understand basic research design (qualitative vs quantitative)",
+                        "Avoid plagiarism, follow ethical guidelines",
+                        "Construct abstract and summarize key findings",
+                        "Critically evaluate sample research papers"
+                    ]
+                },
+                impact: "Understanding research concepts and structure helped me gain confidence in conducting my own study and interpreting academic papers effectively.",
+                actions: [
+                    "Reviewed sample research papers in my field",
+                    "Practiced writing abstracts summarizing key research findings",
+                    "Followed ethical guidelines for citation and referencing",
+                    "Planned mini research project applying learned concepts"
+                ],
+                evidence: [
+                    "Sample Research Paper Screenshot",
+                    "Abstract Draft PDF",
+                    "Research Notes Image"
+                ],
+                progress: 80
+            },
+
+            {
+                number: "06",
+                title: "Interview Preparation",
+                theory: {
+                    "Pre-Interview Preparation": [
+                        "Research: Company mission, values, recent news, competitors, culture",
+                        "Practice: STAR method answers for common questions",
+                        "Prepare questions: 3-5 thoughtful questions for interviewer",
+                        "Review job description: Match qualifications to your experience"
+                    ],
+                    "Professional Presentation": [
+                        "Dress Code: Conservative business attire, well-groomed, minimal jewelry",
+                        "Body Language: Firm handshake, eye contact, good posture, smile",
+                        "Voice: Clear, confident, appropriate volume and pace",
+                        "Materials: Neat folder with extra CVs, references, portfolio"
+                    ],
+                    "Interview Best Practices": [
+                        "Arrive 15 minutes early (never late)",
+                        "Bring document folder with extras of all materials",
+                        "Listen carefully before answering questions",
+                        "Provide specific examples with measurable results",
+                        "Send thank-you email within 24 hours",
+                        "Follow up appropriately without being pushy"
+                    ]
+                },
+                impact: "Most impactful lecture because I had my first mock interview just 3 days later. This preparation was crucial for my success.",
+                actions: [
+                    "Bought complete interview outfit (dark blue shirt, black formal pants, polished shoes)",
+                    "Prepared neat document folder with all materials",
+                    "Practiced STAR answers for 20+ common questions",
+                    "Sent professional thank-you email after mock interview"
+                ],
+                evidence: ["Photo in interview outfit", "Cover Letter", "Thank-you email screenshot"],
+                progress: 90
+            },
+            {
+                number: "07",
+                title: "Project Proposal Writing",
+                theory: {
+                    "Types of Proposals": [
+                        "Internal Proposals: Within organization for new projects, changes, or resources",
+                        "External Proposals: To outside organizations for funding, partnerships, or contracts",
+                        "Solicited: Response to specific Request for Proposal (RFP)",
+                        "Unsolicited: Self-initiated proposal to address identified need"
+                    ],
+                    "Standard Proposal Structure": [
+                        "Executive Summary: Brief overview of entire proposal (written last)",
+                        "Problem Statement: Clear definition of issue being addressed",
+                        "Proposed Solution: Detailed explanation of approach and methodology",
+                        "Management Plan: Team roles, responsibilities, timeline",
+                        "Budget: Itemized costs with justification",
+                        "Schedule: Timeline with milestones and deliverables",
+                        "Evaluation: How success will be measured"
+                    ],
+                    "Purpose & Strategy": [
+                        "Convince decision-makers to approve and fund project",
+                        "Demonstrate feasibility and value proposition",
+                        "Show clear ROI (Return on Investment)",
+                        "Build credibility through professional presentation"
+                    ]
+                },
+                impact: "Only knew university assignment reports before. This taught me how to persuade decision-makers with strategic business writing.",
+                actions: [
+                    "Applied knowledge to write much stronger Food Festival final report",
+                    "Created complete Internal Proposal for 'Mini Food Festival 2026'",
+                    "Learned to think strategically about costs and benefits",
+                    "Developed professional business writing skills"
+                ],
+                evidence: ["Food Festival final report", "Budget analysis documents"],
+                progress: 80
+            },
+            {
+                number: "08",
+                title: "Dining Etiquette & Table Manners",
+                theory: {
+                    "Eating Styles": [
+                        "Continental Style: Fork stays in left hand, knife in right (European)",
+                        "American Style: Switch fork to right hand after cutting (Zig-zag method)",
+                        "Continental is considered more refined in business settings"
+                    ],
+                    "Table Setting Rules": [
+                        "Napkin on lap immediately after sitting",
+                        "Bread plate on LEFT (BMW: Bread, Meal, Water)",
+                        "Drinks on RIGHT",
+                        "Use utensils from outside working inward",
+                        "Finished position: 4:25 (knife and fork together like clock hands)"
+                    ],
+                    "Critical Don'ts": [
+                        "Never pick teeth at table",
+                        "Don't talk with mouth full",
+                        "No elbows on table during meal",
+                        "Don't reach across table",
+                        "Avoid loud chewing or slurping",
+                        "Never use phone during business meal"
+                    ],
+                    "Business Implications": [
+                        "Many companies take final candidates for business dinner",
+                        "Table manners reveal social awareness and polish",
+                        "Poor etiquette can result in instant rejection",
+                        "Shows respect for company culture and professionalism"
+                    ]
+                },
+                impact: "Learned that many companies judge final candidates during dinner interviews. Bad manners = instant rejection regardless of qualifications.",
+                actions: [
+                    "Practice correct table setting at home every Sunday",
+                    "Mastered Continental style (more professional)",
+                    "Memorized all key rules and practiced until automatic",
+                    "Created reference guide with photos"
+                ],
+                evidence: ["Photo of correct table setting with labels", "30-second video showing utensil positions"],
+                progress: 90
+            },
+            {
+                number: "09",
+                title: "Telephone & Email Etiquette",
+                theory: {
+                    "Professional Phone Communication": [
+                        "Answer promptly: Within 3 rings if possible",
+                        "Greeting template: 'Good morning/afternoon, this is [Name] speaking, how may I help you?'",
+                        "Speak clearly with pleasant tone",
+                        "Take detailed messages with date, time, contact info",
+                        "End professionally: 'Thank you for calling, have a great day'"
+                    ],
+                    "Email Structure": [
+                        "Subject Line: Clear, specific, action-oriented (e.g., 'Meeting Request: Q4 Budget Review')",
+                        "Salutation: Formal (Dear Mr./Ms.) or semi-formal (Hi [Name]) based on relationship",
+                        "Opening: State purpose in first sentence",
+                        "Body: Structured paragraphs, bullet points for clarity",
+                        "Closing: Clear call to action or next steps",
+                        "Signature: Full name, title, contact info, LinkedIn"
+                    ],
+                    "Critical Email Rules": [
+                        "Never use slang, emojis, or ALL CAPS in professional emails",
+                        "Proofread before sending (grammar, spelling, tone)",
+                        "Reply within 24 hours during business days",
+                        "CC and BCC appropriately (understand difference)",
+                        "Keep attachments under 10MB, use cloud links for larger files"
+                    ]
+                },
+                impact: "My emails were exactly like WhatsApp messages before this lecture. I didn't understand the importance of professional tone and structure.",
+                actions: [
+                    "Completely changed communication style",
+                    "Created professional email signature with LinkedIn & phone",
+                    "Now use only business-appropriate tone",
+                    "Reviewed and improved all email templates"
+                ],
+                evidence: ["Before vs After email screenshots", "New professional email signature"],
+                progress: 95
+            },
+            {
+                number: "10",
+                title: "Food Festival Practical Project",
+                theory: {
+                    "Event Management Components": [
+                        "Planning: Concept development, feasibility study, venue selection",
+                        "Budgeting: Income projections, expense tracking, profit margins",
+                        "Marketing: Target audience, promotional strategies, social media campaigns",
+                        "Purchasing: Supplier negotiations, quality control, inventory management",
+                        "Operations: Staff scheduling, customer service, problem-solving",
+                        "Financial Management: Cash handling, sales tracking, profit calculation"
+                    ],
+                    "Real-World Skills Developed": [
+                        "Team leadership and collaboration under pressure",
+                        "Financial literacy and budget management",
+                        "Customer service and communication",
+                        "Crisis management (weather, supply issues, price changes)",
+                        "Marketing and promotional skills",
+                        "Time management and multitasking"
+                    ],
+                    "Project Outcomes": [
+                        "food stall operation on campus",
+                        "Complete event from planning to profit calculation",
+                        "Faced real challenges requiring adaptive problem-solving",
+                        "Generated measurable financial results"
+                    ]
+                },
+                impact: "Best hands-on experience of my life. Proved I can run a profitable business under real pressure and unexpected challenges.",
+                actions: [
+                    "Served as Budget Controller: Tracked every expense and income",
+                    "Led Social Media Marketing: Designed all posters in Canva",
+                    "Collaborated with team of 13 members for full time event",
+                    "Achieved effective Event management"
+                ],
+                evidence: ["Final report PDF", "Project proposal", "4 stall photos", "Canva poster designs"],
+                progress: 100
+            },
+
+            {
+                number: "11",
+                title: "Survival Activity: Stranded Downriver – Crisis Leadership & Decision Making",
+
+                theory: {
+                    "Skills Practiced": [
+                        "Strategic thinking",
+                        "Group communication",
+                        "Prioritization",
+                        "Delegation",
+                        "Crisis leadership"
+                    ],
+                    "Decision Criteria": [
+                        "Survival practicality (food, water, navigation, medical)",
+                        "Team/professional value (morale, communication, leadership)"
+                    ],
+                    "Example Chosen Items": [
+                        "Jungle machete — to clear path and create shelter",
+                        "Compass / satellite map — to navigate",
+                        "Portable water purifier tablets — for safe drinking water"
+                    ]
+                },
+                impact: "Practical small-team exercise focused on strategic thinking, prioritization, and crisis leadership when stranded in a jungle environment.",
+
+                actions: [
+                    "Assigned team roles (Leader, Notetaker, Morale Manager, Safety Officer)",
+                    "Prioritized 7 survival items from a 15-item list using survival practicality and team/professional value",
+                    "Practised communication and delegation under pressure"
+                ],
+                evidence: [],
+                evidence: ["Group Image", "Project Report", "Activity"],
+                progress: 80
+            }
+        ];
+
+
+
+        function createLectureCards() {
+            const grid = document.getElementById('lectureGrid');
+            lectures.forEach(lecture => {
+                const card = document.createElement('div');
+                card.className = 'lecture-card';
+                card.innerHTML = `
+                    <span class="lecture-number">Lecture ${lecture.number}</span>
+                    <div class="lecture-title">${lecture.title}</div>
+                    <div class="lecture-preview">${lecture.impact.substring(0, 100)}...</div>
+                    <button class="expand-btn" onclick="showLecture('${lecture.number}')">View Details →</button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function showLecture(number) {
+            const lecture = lectures.find(l => l.number === number);
+            const modal = document.getElementById('lectureModal');
+            const modalBody = document.getElementById('modalBody');
+
+            let theoryHTML = '';
+            for (const [section, points] of Object.entries(lecture.theory)) {
+                theoryHTML += `
+                    <div class="theory-section">
+                        <h4>${section}</h4>
+                        <ul>
+                            ${points.map(point => `<li>${point}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // Generate evidence tags as buttons
+            const evidenceTags = lecture.evidence.map(ev =>
+                `<button class="tag" onclick="showEvidence('${ev.replace(/'/g, "\\'")}')">✓ ${ev}</button>`
+            ).join('');
+
+            modalBody.innerHTML = `
+                <span class="lecture-number">Lecture ${lecture.number}</span>
+                <h2>${lecture.title}</h2>
+                
+                <h3 style="color: #667eea; margin-top: 2rem;">📖 Theory & Key Concepts</h3>
+                ${theoryHTML}
+                
+                <div class="impact-box">
+                    <h4>💡 Personal Impact & Realization</h4>
+                    <p style="line-height: 1.8;">${lecture.impact}</p>
+                </div>
+                
+                <h3 style="color: #667eea; margin-top: 2rem;">✔️Actions Taken</h3>
+                <div class="action-list">
+                    <ul>
+                        ${lecture.actions.map(action => `<li>${action}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <h3 style="color: #667eea; margin-top: 2rem;">📊 Rate of importance</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${lecture.progress}%">${lecture.progress}% Mastery</div>
+                </div>
+                
+                <h3 style="color: #667eea; margin-top: 2rem;">📁 Evidence & Documentation</h3>
+                <div class="evidence-tags">
+                    ${evidenceTags}
+                </div>
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        // <!-- ADDED: Evidence Modal Handler -->
+        function showEvidence(label) {
+            const evidence = evidenceLibrary[label];
+            const evidenceModal = document.getElementById('evidenceModal');
+            const titleEl = document.getElementById('evidenceTitle');
+            const contentEl = document.getElementById('evidenceContent');
+
+            if (!evidence) {
+                contentEl.innerHTML = `<p>Evidence not available.</p>`;
+            } else if (evidence.type === 'img') {
+                contentEl.innerHTML = `<img src="${evidence.src}" alt="${label}">`;
+            } else if (evidence.type === 'pdf') {
+                contentEl.innerHTML = `<a href="${evidence.src}" target="_blank" class="pdf-link">📄 Open PDF: ${label}</a>`;
+            } else if (evidence.type === 'video') {
+                contentEl.innerHTML = `<p>Video evidence not embedded. Contact for access.</p>`;
+            }
+
+            titleEl.textContent = label;
+            evidenceModal.style.display = 'block';
+        }
+
+        // Close modals
+        document.querySelectorAll('.close').forEach(el => {
+            el.onclick = function () {
+                this.closest('.modal').style.display = 'none';
+            }
+        });
+
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        createLectureCards();
+    </script>
+</body>
+
+</html>
